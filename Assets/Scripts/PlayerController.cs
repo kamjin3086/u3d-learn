@@ -7,6 +7,8 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
+    public GameObject restartButton;
+
 public GameObject winTextObject;
 
 public float speed = 0;
@@ -26,7 +28,7 @@ private int count;
         rb = GetComponent<Rigidbody>();
         count = 0;
         winTextObject.SetActive(false);
-        
+        restartButton.SetActive(false);
     }
 
     void FixedUpdate(){
@@ -55,6 +57,8 @@ private int count;
             Destroy(gameObject);
             winTextObject.SetActive(false);
             countText.text = "You Lose! Count: " + count.ToString();
+
+            restartButton.SetActive(true);
         }
     }
 
@@ -67,6 +71,7 @@ private int count;
 
             winTextObject.SetActive(true);
             
+            restartButton.SetActive(true);
         }
     }
 }
